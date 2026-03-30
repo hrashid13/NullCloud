@@ -7,10 +7,11 @@
 
 ## Download
 
-**[Download NullCloud Setup 0.1.0 for Windows](https://github.com/hrashid13/NullCloud/releases/latest)**
+**[Link to Releases](https://github.com/hrashid13/NullCloud/releases/latest)**
 
-- **macOS**: Coming soon
-- **Linux**: Coming soon
+- Windows Support with .exe file
+- Mac Support with .dmg file
+- Linux Support with .AppImage file
 
 ---
 
