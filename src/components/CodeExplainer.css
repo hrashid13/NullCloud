@@ -1,0 +1,87 @@
+.code-explainer {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.example-btn {
+  padding: 6px 12px;
+  background: #9c27b0;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.example-btn:hover {
+  background: #7b1fa2;
+  transform: translateY(-1px);
+}
+
+.code-input {
+  width: 100%;
+  padding: 15px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-family: 'Courier New', monospace;
+  resize: vertical;
+  background: #f8f9fa;
+  transition: border-color 0.3s ease;
+  line-height: 1.6;
+}
+
+.code-input:hover {
+  border-color: #1e3c72;
+}
+
+.code-input:focus {
+  outline: none;
+  border-color: #1e3c72;
+  box-shadow: 0 0 0 3px rgba(30, 60, 114, 0.1);
+  background: white;
+}
+
+.explain-btn {
+  width: 100%;
+  padding: 15px;
+  background: linear-gradient(135deg, #9c27b0 0%, #ba68c8 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(156, 39, 176, 0.3);
+}
+
+.explain-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(156, 39, 176, 0.4);
+}
+
+.explain-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.explanation-output {
+  background: #f8f9fa;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 20px;
+  line-height: 1.8;
+  color: #2c3e50;
+  white-space: pre-wrap;
+  font-size: 1rem;
+}

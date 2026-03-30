@@ -1,0 +1,76 @@
+{
+  "name": "nullcloud",
+  "version": "0.1.0",
+  "description": "Your local AI coding assistant powered by Ollama",
+  "author": "hrashid13",
+  "private": true,
+  "main": "electron.js",
+  "homepage": "./",
+  "dependencies": {
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "@testing-library/user-event": "^13.5.0",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "react-scripts": "5.0.1",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "electron-dev": "concurrently \"cross-env BROWSER=none PORT=3001 npm start\" \"wait-on http://localhost:3001 && cross-env ELECTRON_START_URL=http://localhost:3001 electron .\"",
+    "electron-pack": "npm run build && electron-builder",
+    "dist": "npm run build && electron-builder"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1",
+    "cross-env": "^10.1.0",
+    "electron": "^40.1.0",
+    "electron-builder": "^26.7.0",
+    "wait-on": "^9.0.3"
+  },
+  "build": {
+    "appId": "com.nullcloud.app",
+    "productName": "NullCloud",
+    "files": [
+      "build/**/*",
+      "electron.js"
+    ],
+    "extraMetadata": {
+      "main": "electron.js"
+    },
+    "win": {
+      "target": "nsis",
+      "icon": "public/logo.ico"
+    },
+    "mac": {
+      "target": "dmg",
+      "icon": "public/logo.ico"
+    },
+    "linux": {
+      "target": "AppImage",
+      "icon": "public/logo.ico"
+    }
+  }
+}
