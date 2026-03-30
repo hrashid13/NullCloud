@@ -60,6 +60,11 @@
     "extraMetadata": {
       "main": "electron.js"
     },
+    "publish": {
+      "provider": "github",
+      "owner": "hrashid13",
+      "repo": "NullCloud"
+    },
     "win": {
       "target": "nsis",
       "icon": "public/logo.ico"
