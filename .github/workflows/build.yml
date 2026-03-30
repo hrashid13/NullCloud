@@ -2,16 +2,11 @@ name: Build and Release NullCloud
 
 on:
   release:
-    types: [created]
+    types: [published]
 
 jobs:
-  build:
-    strategy:
-      matrix:
-        os: [windows-latest, macos-latest, ubuntu-latest]
-
-    runs-on: ${{ matrix.os }}
-
+  build-windows:
+    runs-on: windows-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -25,52 +20,65 @@ jobs:
         run: npm install
 
       - name: Build Windows installer
-        if: matrix.os == 'windows-latest'
         run: npm run dist
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload Windows installer
+        uses: softprops/action-gh-release@v1
+        with:
+          files: dist/*.exe
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  build-mac:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: npm install
 
       - name: Build Mac installer
-        if: matrix.os == 'macos-latest'
         run: npm run dist
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload Mac installer
+        uses: softprops/action-gh-release@v1
+        with:
+          files: dist/*.dmg
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  build-linux:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: npm install
 
       - name: Build Linux installer
-        if: matrix.os == 'ubuntu-latest'
         run: npm run dist
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Upload Windows artifact
-        if: matrix.os == 'windows-latest'
-        uses: actions/upload-release-asset@v1
+      - name: Upload Linux installer
+        uses: softprops/action-gh-release@v1
+        with:
+          files: dist/*.AppImage
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ github.event.release.upload_url }}
-          asset_path: dist/NullCloud Setup ${{ github.event.release.tag_name }}.exe
-          asset_name: NullCloud-Setup-${{ github.event.release.tag_name }}.exe
-          asset_content_type: application/octet-stream
-
-      - name: Upload Mac artifact
-        if: matrix.os == 'macos-latest'
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ github.event.release.upload_url }}
-          asset_path: dist/NullCloud-${{ github.event.release.tag_name }}.dmg
-          asset_name: NullCloud-${{ github.event.release.tag_name }}.dmg
-          asset_content_type: application/octet-stream
-
-      - name: Upload Linux artifact
-        if: matrix.os == 'ubuntu-latest'
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ github.event.release.upload_url }}
-          asset_path: dist/NullCloud-${{ github.event.release.tag_name }}.AppImage
-          asset_name: NullCloud-${{ github.event.release.tag_name }}.AppImage
-          asset_content_type: application/octet-stream
