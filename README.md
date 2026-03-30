@@ -2,6 +2,7 @@
 
 > Powered by Ollama — 100% Private & Local. No API keys. No cloud. No data ever leaves your machine.
 
+![NullCloud Logo](public/Logo.png)
 
 ---
 
