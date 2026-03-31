@@ -182,3 +182,133 @@
   margin-top: 15px;
   color: #2c3e50;
 }
+
+/* Card title row with Add Schema button */
+.card-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 25px;
+  gap: 16px;
+}
+
+.card-title-row > div {
+  flex: 1;
+}
+
+.card-title-row .description {
+  margin-bottom: 0;
+}
+
+.add-schema-btn {
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(30, 60, 114, 0.3);
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+.add-schema-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(30, 60, 114, 0.4);
+}
+
+/* Schema select row with delete button */
+.schema-select-row label {
+  display: block;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+}
+
+.schema-controls {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.schema-controls .select-input {
+  flex: 1;
+}
+
+.delete-schema-btn {
+  padding: 10px 16px;
+  background: transparent;
+  color: #e53935;
+  border: 2px solid #e53935;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.delete-schema-btn:hover {
+  background: #fdecea;
+}
+
+.delete-schema-btn.confirm {
+  background: #e53935;
+  color: white;
+}
+
+/* No schema placeholder */
+.no-schema-placeholder {
+  text-align: center;
+  padding: 60px 20px;
+  color: #666;
+}
+
+.placeholder-icon {
+  font-size: 3rem;
+  margin-bottom: 16px;
+}
+
+.no-schema-placeholder h3 {
+  color: #333;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+
+.no-schema-placeholder p {
+  font-size: 1rem;
+  margin-bottom: 24px;
+  line-height: 1.6;
+}
+
+.no-schema-placeholder code {
+  background: #f0f4ff;
+  color: #1e3c72;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: 'Courier New', monospace;
+}
+
+.add-schema-btn-large {
+  padding: 14px 32px;
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(30, 60, 114, 0.3);
+}
+
+.add-schema-btn-large:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(30, 60, 114, 0.4);
+}

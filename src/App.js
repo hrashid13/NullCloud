@@ -3,9 +3,15 @@ import './App.css';
 import SQLBuilder from './components/SQLBuilder';
 import CodeExplainer from './components/CodeExplainer';
 import CodeCreator from './components/CodeCreator';
+import OllamaCheck from './components/OllamaCheck';
 
 function App() {
   const [activeTab, setActiveTab] = useState('sql');
+  const [ollamaReady, setOllamaReady] = useState(false);
+
+  if (!ollamaReady) {
+    return <OllamaCheck onReady={() => setOllamaReady(true)} />;
+  }
 
   return (
     <div className="App">
