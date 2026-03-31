@@ -3,7 +3,6 @@ import './OllamaCheck.css';
 
 function OllamaCheck({ onReady }) {
   const [status, setStatus] = useState('checking'); // checking | missing | noModels | ready
-  const [models, setModels] = useState([]);
 
   const checkOllama = async () => {
     setStatus('checking');
@@ -12,7 +11,6 @@ function OllamaCheck({ onReady }) {
       if (!response.ok) throw new Error('not running');
       const data = await response.json();
       const availableModels = data.models || [];
-      setModels(availableModels);
       if (availableModels.length === 0) {
         setStatus('noModels');
       } else {
@@ -24,9 +22,8 @@ function OllamaCheck({ onReady }) {
     }
   };
 
-  useEffect(() => {
-    checkOllama();
-  }, []);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useEffect(() => { checkOllama(); }, []);
 
   const openOllamaDownload = () => {
     window.open('https://ollama.com/download', '_blank');
