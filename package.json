@@ -1,6 +1,6 @@
 {
   "name": "nullcloud",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Your local AI coding assistant powered by Ollama",
   "author": "hrashid13",
   "private": true,
