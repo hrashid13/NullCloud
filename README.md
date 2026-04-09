@@ -182,6 +182,23 @@ Run the terminal as Administrator — electron-builder requires elevated permiss
 
 ---
 
+## Disclaimer
+
+It is not perfect yet! I am still working out the kinks and would love feedback on any improvements or suggestions!
+
+For Mac:
+
+If dmg file cannot open due to "NullCloud is damaged and can't be opened error" follow the following steps:
+
+1. Open Terminal
+2. Run the following command in terminal:
+
+```
+xattr -cr ~/Downloads/"NullCloud-1.0.0-arm64.dmg"
+```
+
+3. Re-Open the app. Make sure the file is called exactly: "NullCloud-1.0.0-arm64.dmg" in your downloads. Should work from there
+
 ## License
 
 MIT License — see [LICENSE](LICENSE) for details.
